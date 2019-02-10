@@ -13,13 +13,26 @@ namespace CSharpLessons.OrganizationModel
 
         public IEmployee Director { get; set; }
 
-        public void AddEmployee(IEmployee employee, Manager manager)
+        public void AddEmployee(IEmployee employee, Manager manager, TaxOffice taxOffice)
         {
+
             _employees.Add(employee);
+            taxOffice.RegisterEmployee(employee);
             if (manager != null)
             {
                 manager.AddEmployee(employee);
             }
+        }
+
+        public void FireEmployee (IEmployee employee) {
+            try {
+                _employees.Remove(employee);
+                }
+            catch (Exception e) {
+                System.Console.WriteLine(e);
+            };
+            
+            
         }
 
         public void PrintEmployeeCards()

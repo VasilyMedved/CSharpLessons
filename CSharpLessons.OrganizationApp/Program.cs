@@ -20,17 +20,21 @@ namespace CSharpLessons.OrganizationApp
             var frank = new Manager() { Name = "Frank", Title = "Director" };
 
             var organization = new Organization();
-            organization.AddEmployee(alice, chloe);
-            organization.AddEmployee(bruce, chloe);
-            organization.AddEmployee(chloe, frank);
-            organization.AddEmployee(doris, ethan);
-            organization.AddEmployee(ethan, frank);
-            organization.AddEmployee(frank, null);
+            organization.AddEmployee(alice, chloe, taxOffice);
+            organization.AddEmployee(bruce, chloe, taxOffice);
+            organization.AddEmployee(chloe, frank, taxOffice);
+            organization.AddEmployee(doris, ethan, taxOffice);
+            organization.AddEmployee(ethan, frank, taxOffice);
+            organization.AddEmployee(frank, null, taxOffice);
             organization.Director = frank;
 
+            organization.FireEmployee(bruce);
             Console.WriteLine(organization);
 
-            organization.PrintEmployeeCards();
+            // organization.PrintEmployeeCards();
+            // System.Console.WriteLine("--- TAX PAYERS: ---");
+            // taxOffice.PrintTaxPayers();
+
 
             End();
         }
